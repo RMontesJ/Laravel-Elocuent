@@ -15,6 +15,12 @@
             <button>Editar</button>
             </a>
 
+            <form action="{{ route('posts.destroy', $post) }}" method="POST" style="display:inline-block;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar este post?')">Eliminar</button>
+</form>
+
         </div>
     @endforeach
 </body>
