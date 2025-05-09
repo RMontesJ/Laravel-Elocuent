@@ -37,30 +37,24 @@ public function index()
         return redirect('/crear-post')->with('success', 'Post creado exitosamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    
+public function edit(Post $post)
+{
+    return view('posts.edit', compact('post'));
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
+// Guarda los cambios en la base de datos
+public function update(Request $request, Post $post)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'content' => 'required|string',
+    ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Post $post)
-    {
-        //
-    }
+    $post->update($request->only('title', 'content'));
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    return redirect()->route('ver-posts')->with('success', 'Post actualizado correctamente');
+}
+
     public function destroy(Post $post)
     {
         //
