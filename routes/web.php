@@ -10,4 +10,5 @@ Route::get('/', function () {
 
 
 Route::get('/crear-post', [PostController::class, 'create'])->name("crear-post");
+Route::get('/ver', [PostController::class, 'index'])->name('ver-posts');
 Route::post('/crear-post', [PostController::class, 'store']);

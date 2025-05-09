@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+public function index()
+{
+    $posts = \App\Models\Post::all();
+    return view('posts.ver', compact('posts')); // cambiamos a la vista 'ver'
+}
+
+
    public function create()
     {
         return view('posts.create');
@@ -33,10 +40,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

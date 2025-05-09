@@ -12,5 +12,9 @@
     <button>Crear post</button>
     </a>
 
+    <a href="{{ route('ver-posts') }}">
+    <button>Ver post</button>
+    </a>
+
     </body>
 </html>
